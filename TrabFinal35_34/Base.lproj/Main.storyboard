@@ -40,7 +40,8 @@
                                 <rect key="frame" x="130" y="509" width="155" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="H1i-aj-Xui" kind="showDetail" id="JKr-2S-CJK"/>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NbA-RG-i9P"/>
+                                    <segue destination="Ph5-0C-6gm" kind="show" id="bsG-sa-pTr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2j-vC-zR1">
@@ -72,6 +73,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="wC8-FE-Pqp" id="HQy-ky-pwP"/>
+                        <outlet property="password" destination="lE8-5I-8ng" id="PzD-b1-ofO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FOn-3C-AaA">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -141,7 +146,4 @@
             <point key="canvasLocation" x="1024.6376811594205" y="116.51785714285714"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="JKr-2S-CJK"/>
-    </inferredMetricsTieBreakers>
 </document>
