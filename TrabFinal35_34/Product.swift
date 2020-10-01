@@ -2,22 +2,31 @@
 //  Product.swift
 //  TrabFinal35_34
 //
-//  Created by COTEMIG on 24/09/20.
+//  Created by Pedro Henrique Oliveira Siqueira on 30/09/20.
 //  Copyright © 2020 PedroRodriguesPedroOliveira. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Product: Codable {
-    public let name, description: String
-    public let value: Int
-    public let image: String
+class Product: Codable{
+    let product: [Products]
     
-    enum CodingKeys: String, CodingKey{
-        case name = "Nome"
-        case description = "Description"
-        case value = "Value"
-        case image  = "img"
+    init(product: [Products]) {
+        self.product = product
     }
 }
 
+
+class Products: Codable {
+    let name: String
+    let price: String
+    let productDescription: String
+    let img: String
+
+    enum CodingKeys: String, CodingKey {
+           case name = "Name"
+           case price = "Value"
+           case productDescription = "Description"
+           case img
+       }
+}

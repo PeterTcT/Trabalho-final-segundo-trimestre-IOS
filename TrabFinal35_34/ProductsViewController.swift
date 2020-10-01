@@ -2,102 +2,69 @@
 //  ProductsViewController.swift
 //  TrabFinal35_34
 //
-//  Created by COTEMIG on 16/09/20.
+//  Created by Pedro Henrique Oliveira Siqueira on 30/09/20.
 //  Copyright © 2020 PedroRodriguesPedroOliveira. All rights reserved.
 //
 
 import UIKit
-class ProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ProductsViewController: UIViewController, UITableViewDataSource{
+
+    final let url = URL(string: "https://trab-ios.herokuapp.com/products")
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return p_array.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ProductCell{
-        let product = p_array[indexPath.row]
-        cell.productTitle.text = product.name
-        cell.productDescription.text = product.description
-        cell.productPrice.text = String(product.value)
-        cell.imageProduct.image = UIImage(named: p_array[indexPath.row].image)
-        return cell
-    }
-        else{
-        fatalError("Erro na célula!")
-    }
-}
-
-    private func api(){
-        let url = URL(string: "https://trab-ios.herokuapp.com/products")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data{
-                do {
-                    let productAPI = try JSONDecoder().decode([Product].self, from: data)
-
-                    self.p_array.append(contentsOf: productAPI)
-                    DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    }
-                }catch{
-                    print("Erro de parse!")
-                }
-            }
-        }.resume()
-    }
-        
-//
-////        func api(completion: @escaping (Product) ->()){
-////            let urlString = "https://trab-ios.herokuapp.com/products"
-////            if let url = URL(string: urlString){
-////                URLSession.shared.dataTask(with: url) { data, res, err in
-////                    if let data = data {
-////                        print("hey")
-////
-////                        let decoder = JSONDecoder()
-////                        if let json = try? decoder.decode(Product.self, from: data){
-////                            completion(json)
-////                        }
-////                    }
-////                    }.resume()
-////            }
-////        }
-
-    
+    private var products = [Products]()
     
     @IBOutlet weak var tableView: UITableView!
     
-    var p_array: [Product] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        api()
+        downloadAPI()
+        tableView.tableFooterView = UIView()
+    }
+    
+    func downloadAPI(){
+        guard let downloadURL = url else { return }
+        URLSession.shared.dataTask(with: downloadURL) { data, urlResponse, error in
+            guard let data = data, error == nil, urlResponse != nil else{
+                print("Algo deu Errado!")
+                return
+            }
+            print("Downloaded!")
+            do {
+              let decoder  = JSONDecoder()
+                let downloaded_products = try decoder.decode(Product.self, from: data)
+                self.products = downloaded_products.product
+                DispatchQueue.main.async {
+                     self.tableView.reloadData()
+                }
+//                print(downloaded_products.product[0].name)
+            } catch{
+                print("Something went wrong")
+            }
+        }.resume()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductViewCell") as? ProductCell else { return UITableViewCell()}
+        
+        cell.titleLabel.text = products[indexPath.row].name
+        cell.priceLabel.text = products[indexPath.row].price
+        cell.descriptionLabel.text = products[indexPath.row].productDescription
+        
+          if let imageURL = URL(string: products[indexPath.row].img){
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: imageURL)
+                if let data = data {
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.imgView.image = image
+                    }
+                }
+            }
+        }
+        return cell
     }
 }
-
-
-
-//extension ViewController: UITableViewDelegate, UITableViewDataSource{
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return p_array.count
-//        }
-//
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//            if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ProductCell{
-//                let product = p_array[indexPath.row]
-//                cell.productTitle.text = product.name
-//                cell.productDescription.text = product.description
-//                cell.productPrice.text = String(product.value)
-//                cell.imageProduct.image = UIImage(named: product[indexPath.row])
-//                return cell
-//            }
-//            else{
-//                fatalError("Erro na célula!")
-//            }
-//        }
-//
-//    }
-
-
-
