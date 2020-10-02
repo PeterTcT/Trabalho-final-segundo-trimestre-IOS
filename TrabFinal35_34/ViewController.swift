@@ -18,11 +18,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let userAuthStatus = UserDefaults.standard.bool(forKey: "LoginStatus")
         if userAuthStatus {
             self.performSegue(withIdentifier: "login", sender: self)
         }
-        // Do any additional setup after loading the view.
     }
 
 
@@ -53,6 +55,4 @@ class ViewController: UIViewController {
           }
         }
     }
- }
-}
 

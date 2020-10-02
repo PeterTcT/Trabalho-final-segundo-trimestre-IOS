@@ -21,7 +21,13 @@ class ProductsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
+    
+    @IBAction func logoff(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.set(false, forKey: "LoginStatus")
+        self.performSegue(withIdentifier: "showLoginPage", sender: nil)
+    }
+    
     func downloadAPI(){
         guard let downloadURL = url else { return }
         URLSession.shared.dataTask(with: downloadURL) { data, urlResponse, error in

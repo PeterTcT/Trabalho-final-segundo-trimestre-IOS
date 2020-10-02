@@ -52,7 +52,6 @@
                         <constraints>
                             <constraint firstItem="wC8-FE-Pqp" firstAttribute="top" secondItem="B2j-vC-zR1" secondAttribute="bottom" constant="24" id="6rY-sE-5kT"/>
                             <constraint firstItem="B2j-vC-zR1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="7LN-0B-fOG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ENB-kp-JNE" secondAttribute="bottom" constant="323" id="JxQ-r9-bPM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lE8-5I-8ng" secondAttribute="trailing" constant="52" id="N1y-vZ-ACw"/>
                             <constraint firstItem="wC8-FE-Pqp" firstAttribute="top" secondItem="B2j-vC-zR1" secondAttribute="bottom" constant="24" id="Naa-a0-ivA"/>
                             <constraint firstItem="B2j-vC-zR1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="187" id="Q5h-p2-AlQ"/>
@@ -170,16 +169,21 @@
                         <viewLayoutGuide key="safeArea" id="uvW-4t-OXw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Produtos disponiveis" id="LJB-jD-8UV">
-                        <barButtonItem key="rightBarButtonItem" title="logoff" id="cQ5-Lg-zu5"/>
+                        <barButtonItem key="rightBarButtonItem" title="logoff" id="cQ5-Lg-zu5">
+                            <connections>
+                                <action selector="logoff:" destination="H1i-aj-Xui" id="A5w-9r-g09"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="FOn-3C-AaA" id="ufh-sa-2JY"/>
                         <segue destination="4Fl-HS-Mzw" kind="show" identifier="SegueInformation" id="52S-k6-Y2n"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="showLoginPage" id="wxh-mA-AnS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVI-kr-pSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1936.2318840579712" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1849" y="116"/>
         </scene>
         <!--Product Informatio View Controller-->
         <scene sceneID="Lq6-z6-g3N">
@@ -262,7 +266,4 @@
             <point key="canvasLocation" x="1024.6376811594205" y="116.51785714285714"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fXh-qn-Cti"/>
-    </inferredMetricsTieBreakers>
 </document>
