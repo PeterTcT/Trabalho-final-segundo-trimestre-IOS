@@ -40,5 +40,11 @@ class ProductInformatioViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func saveProductOnCart(_ sender: Any) {
+        let addProductOnCartAlert = UIAlertController(title: "Sucesso", message: "Produto adicionado no carrinho :)", preferredStyle: UIAlertController.Style.alert)
+        addProductOnCartAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(addProductOnCartAlert,animated: true)    }
+    
 
 }

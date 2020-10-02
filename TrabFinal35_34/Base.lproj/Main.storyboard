@@ -217,19 +217,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lk6-1X-MMO">
+                                <rect key="frame" x="109" y="582" width="196" height="52"/>
+                                <state key="normal" title="Adicionar ao carrinho"/>
+                                <connections>
+                                    <action selector="saveProductOnCart:" destination="4Fl-HS-Mzw" eventType="touchUpInside" id="zLP-Da-2CN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gv8-2W-QpN" firstAttribute="leading" secondItem="XUK-qj-8pa" secondAttribute="leading" constant="30" id="5AQ-lB-3KJ"/>
                             <constraint firstItem="7jk-A4-NVB" firstAttribute="top" secondItem="gv8-2W-QpN" secondAttribute="bottom" constant="30" id="C7I-9Z-ym2"/>
+                            <constraint firstItem="lk6-1X-MMO" firstAttribute="leading" secondItem="XUK-qj-8pa" secondAttribute="leading" constant="109" id="GvH-W9-c7b"/>
                             <constraint firstItem="7jk-A4-NVB" firstAttribute="leading" secondItem="XUK-qj-8pa" secondAttribute="leading" constant="30" id="Gwy-nX-FBn"/>
                             <constraint firstItem="zRE-tm-a8I" firstAttribute="top" secondItem="7jk-A4-NVB" secondAttribute="bottom" constant="30" id="NV4-E4-aQy"/>
+                            <constraint firstItem="XUK-qj-8pa" firstAttribute="bottom" secondItem="lk6-1X-MMO" secondAttribute="bottom" constant="228" id="Qwq-Ql-KRR"/>
                             <constraint firstItem="XUK-qj-8pa" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zRE-tm-a8I" secondAttribute="bottom" constant="30" id="ZpW-VR-Zzp"/>
+                            <constraint firstItem="lk6-1X-MMO" firstAttribute="top" secondItem="zRE-tm-a8I" secondAttribute="bottom" constant="58.5" id="cHT-T5-yAs"/>
                             <constraint firstItem="XUK-qj-8pa" firstAttribute="trailing" secondItem="zRE-tm-a8I" secondAttribute="trailing" constant="30" id="cMc-r5-e1f"/>
                             <constraint firstItem="Rs4-h2-qV0" firstAttribute="top" secondItem="XUK-qj-8pa" secondAttribute="top" constant="20" id="eqw-aG-beJ"/>
                             <constraint firstItem="XUK-qj-8pa" firstAttribute="trailing" secondItem="gv8-2W-QpN" secondAttribute="trailing" constant="30" id="gwq-wE-dpM"/>
                             <constraint firstItem="Rs4-h2-qV0" firstAttribute="leading" secondItem="XUK-qj-8pa" secondAttribute="leading" constant="20" id="hrg-1Z-SRr"/>
                             <constraint firstItem="XUK-qj-8pa" firstAttribute="trailing" secondItem="Rs4-h2-qV0" secondAttribute="trailing" constant="20" id="iFM-Um-cX6"/>
+                            <constraint firstItem="XUK-qj-8pa" firstAttribute="trailing" secondItem="lk6-1X-MMO" secondAttribute="trailing" constant="109" id="iyW-Wl-xzr"/>
                             <constraint firstItem="zRE-tm-a8I" firstAttribute="leading" secondItem="XUK-qj-8pa" secondAttribute="leading" constant="30" id="nNy-EW-9sq"/>
                             <constraint firstItem="XUK-qj-8pa" firstAttribute="trailing" secondItem="7jk-A4-NVB" secondAttribute="trailing" constant="30" id="r59-JN-Bpq"/>
                             <constraint firstItem="gv8-2W-QpN" firstAttribute="top" secondItem="Rs4-h2-qV0" secondAttribute="bottom" constant="30" id="rMQ-Dg-oQt"/>
