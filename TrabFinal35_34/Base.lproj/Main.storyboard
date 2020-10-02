@@ -38,7 +38,7 @@
                                 <rect key="frame" x="130" y="509" width="155" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="H1i-aj-Xui" kind="showDetail" id="JKr-2S-CJK"/>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NbA-RG-i9P"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2j-vC-zR1">
@@ -70,6 +70,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="wC8-FE-Pqp" id="HQy-ky-pwP"/>
+                        <outlet property="password" destination="lE8-5I-8ng" id="PzD-b1-ofO"/>
+                        <segue destination="Ph5-0C-6gm" kind="show" identifier="login" id="VYj-zN-77P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,7 +246,7 @@
         <!--Navigation Controller-->
         <scene sceneID="08S-cW-wdQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ph5-0C-6gm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="productsView" automaticallyAdjustsScrollViewInsets="NO" id="Ph5-0C-6gm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hBq-Xd-6hi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
