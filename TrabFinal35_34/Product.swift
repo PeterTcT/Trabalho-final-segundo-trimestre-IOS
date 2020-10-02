@@ -8,25 +8,24 @@
 
 import UIKit
 
-class Product: Codable{
-    let product: [Products]
+struct Products: Codable {
+    let products: [Product]
     
-    init(product: [Products]) {
-        self.product = product
+    enum CodingKeys: String, CodingKey {
+        case products = "Products"
     }
 }
 
-
-class Products: Codable {
+struct Product: Codable {
     let name: String
-    let price: String
+    let value: Int
     let productDescription: String
     let img: String
-
+    
     enum CodingKeys: String, CodingKey {
-           case name = "Name"
-           case price = "Value"
-           case productDescription = "Description"
-           case img
-       }
+        case name = "Name"
+        case value = "Value"
+        case productDescription = "Description"
+        case img
+    }
 }

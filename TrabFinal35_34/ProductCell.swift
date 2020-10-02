@@ -11,7 +11,7 @@ import UIKit
 class ProductCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var productPrice_Label: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var imgView: UIImageView!
     
@@ -19,11 +19,4 @@ class ProductCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
